@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
 
-function App() {
+const App = () => {
+  const [yazi, setYazi] = useState("HELLO WORLD");
+  useEffect(() => {
+    // tarayıcının başlık bölümünü değiştirmemizi sağlar
+    document.title = `${yazi}`;
+  });
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>{yazi}</p>
+      <button onClick={() => setYazi("MERHABA DÜNYA")}>Türkçe</button>
+      <button onClick={() => setYazi("HELLO WORLD")}>English</button>
     </div>
   );
-}
+};
 
 export default App;
